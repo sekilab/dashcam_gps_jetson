@@ -1,1 +1,1 @@
-# dashcam_gps_jetson
+# Dashcam recorder with GPS
