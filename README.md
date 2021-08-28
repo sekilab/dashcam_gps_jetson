@@ -16,7 +16,7 @@ This program uses Assisted GPS (A-GPS) for faster location retrieval from the sa
 
 Before installtion, make sure whether you want to use A-GPS or not. If you do not wish to use A-GPS, then modify line 55 of video_gps.py to False.
 
-If you wish to use A-GPS, please obtain API token for IPINFO and u-blox AssistNow service and input them in string format ![alt](https://github.com/sekilab/dashcam_gps_jetson/blob/b93cb6278f19fca51c3d35a98c5c114bb2eb929a/video_gps.py#L42)
+If you wish to use A-GPS, please obtain API token for IPINFO and u-blox AssistNow service and input them in string format on [L42](https://github.com/sekilab/dashcam_gps_jetson/blob/b93cb6278f19fca51c3d35a98c5c114bb2eb929a/video_gps.py#L42)
 Installation of Gstreamer plugins:
 `sudo bash gstreamer_install.sh`
 
