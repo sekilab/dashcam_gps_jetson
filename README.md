@@ -21,7 +21,7 @@ If you wish to use A-GPS, please obtain API token for IPINFO and u-blox AssistNo
 Installation of Gstreamer plugins:
 `sudo bash gstreamer_install.sh`
 
-Installation of main program:
+Installation of main program with all dependencies:
 `sudo bash install_dtn_gps_cam.sh`
 
 ## Running program
