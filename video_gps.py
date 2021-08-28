@@ -8,21 +8,17 @@
 import pprint
 import ipinfo
 import pynmea2
-
 import serial
 import requests
-
 import time
 import os
 import threading
 import multiprocessing
 from datetime import datetime
 import subprocess
-
 from random import randint
 
-
-
+# Get a random digit of n digits. This is used to name video files.
 def rand_n(n):
     range_start = 10**(n-1)
     range_end = (10**n)-1
@@ -68,7 +64,9 @@ def get_lat_lon(latitude, longitude):
                     break
                 else:
                     continue
+
     serial_port = serial.Serial(COM_PORT, BAUDRATE, timeout = None)
+
     # Wait until GPS is released
     pipe = True
     while pipe:
@@ -101,8 +99,7 @@ def get_lat_lon(latitude, longitude):
 
 def gstreamer_nano():
 
-    cmd = f"gst-launch-1.0 -e v4l2src device=/dev/video0  ! image/jpeg,width=1280,height=720,framerate=30/1 ! jpegdec ! videoflip method=rotate-180 ! nvvidconv ! queue ! clockoverlay ! omxh264enc ! splitmuxsink location=/home/{os.getlogin()}/video_data/{rand_n(5)}-%04d.mp4 max-size-time=60000000000 max-size-bytes=10000000"
-   
+    cmd = f"gst-launch-1.0 -e v4l2src device=/dev/video0  ! image/jpeg,width=1280,height=720,framerate=30/1 ! jpegdec ! videoflip method=rotate-180 ! nvvidconv ! queue ! clockoverlay ! omxh264enc ! splitmuxsink location=/home/{os.getlogin()}/video_data/{rand_n(5)}-%04d.mp4 max-size-time=60000000000 max-size-bytes=10000000"  
     process = subprocess.Popen(cmd, shell = True)
 
 if __name__ == "__main__":
@@ -114,4 +111,5 @@ if __name__ == "__main__":
 
     gps_thread = multiprocessing.Process(target = get_lat_lon, args=(latitude, longitude))
     gps_thread.start()
+    
     gstreamer_nano()
