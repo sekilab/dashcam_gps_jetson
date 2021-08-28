@@ -1,6 +1,6 @@
 # Dashcam recorder with GPS
 
-This program can be used to record videos using Gstreamer along with GPS on Jetson family devices such as Jetson Nano, Jetson Xavier NX, Jetson Xavier AGX, Jetson TX2, etc. 
+This Python program can be used to record videos using Gstreamer along with GPS on Jetson family devices such as Jetson Nano, Jetson Xavier NX, Jetson Xavier AGX, Jetson TX2, etc. 
 This program uses Assisted GPS (AGPS) for faster location retrieval from the satellite by downloading satellite almanac data based on approximate location from the IP address.
 
 ## Requirements
@@ -24,4 +24,4 @@ Installation of main program:
 
 ## Running program
 
-The program runs automatically on startup and saves videos (approx. one minute duration files) and GPS logs in the `$HOME` directory. 
+The program runs automatically on startup and saves video (approx. one minute duration files) and GPS logs in the `$HOME` directory. 
